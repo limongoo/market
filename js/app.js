@@ -7,13 +7,14 @@ function addImg(imageFileName) {
   var container = document.getElementById("imageContain");
   var image = document.createElement("img");
   image.src = imageFileName;
+  image.addEventListener("click", recordClick);
   container.appendChild(image);
 }
 
 // random function
 function getRandom() {
   return Math.floor(Math.random() * 14);
-} // end function
+}
 
 // function to randomize image
 function showImages() {
@@ -31,8 +32,16 @@ function showImages() {
     while (index3 === index2 || index3 === index1) {
       index3 = getRandom();
     }
-} //end function
+}
+
+// function to record click
+function recordClick(event) {
+  var imageSource = event.target.src;
+  console.log("Image Clicked: "+imageSource);
+  showImages();
+}
 
 
+// window event listener
 window.addEventListener("load", showImages);
 console.log("end");
