@@ -1,1 +1,16 @@
-//css
+//*css *//
+
+body {
+  text-align: center;
+}
+
+
+#imageContain {
+  display: flex;
+  justify-content: space-around;
+  ext-align: center;
+}
+
+#imageContain img {
+  height: 200px;
+}
