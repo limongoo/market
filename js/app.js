@@ -13,9 +13,7 @@ function addImg(imageFileName) {
   container.appendChild(image);
 }
 
-// var index1 = document.createElement("img");
-// var index2 = document.createElement("img");
-// var index3 = document.createElement("img");
+
 
 
 // random function
@@ -50,22 +48,22 @@ function showImages() {
 // index2.addEventListener('click', recordClick);
 // index3.addEventListener('click', recordClick);
 
+// counter = 0
+var totalClick = 0;
+var index1 = 0;
+var index2 = 0;
+var index3 = 0;
 
 // function to record click
 function recordClick(event) {
   var imageSource = event.target.src;
   console.log("Image Clicked: "+imageSource);
 
-  // var image = document.createElement("img");
-  //
-  // var index1 = document.getElementsByTagName("img");
-  // console.log(index1);
-  // var index2 = document.getElementsByTagName("img");
-  // var index3 = document.getElementsByTagName("img");
 
-  // index1.removeChild(image);
-  // index2.removeChild(image);
-  // index3.removeChild(image);
+  totalClick++; // total click counter
+  console.log(totalClick);
+
+  document.getElementById('counterText').innerHTML = "Vote Counter: " + totalClick + " of 15"; // Show # of 15 text
 
   showImages();
 }
