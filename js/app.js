@@ -29,24 +29,24 @@ function showImages() {
 
   var index1 = getRandom();
   addImg("img/"+imageNames[index1]);
+  // imageFileName.dataset.index = index1;
 
   var index2 = getRandom();
   while (index2 === index1) {
     index2 = getRandom();
   }
   addImg("img/"+imageNames[index2]);
+  // imageFileName.dataset.index = index2;
 
   var index3 = getRandom();
   while (index3 === index2 || index3 === index1) {
     index3 = getRandom();
   }
   addImg("img/"+imageNames[index3]);
+  // imageFileName.dataset.index = index3;
 }
 
-// // Click event listener
-// index1.addEventListener('click', recordClick);
-// index2.addEventListener('click', recordClick);
-// index3.addEventListener('click', recordClick);
+
 
 // counter = 0
 var totalClick = 0;
@@ -59,6 +59,12 @@ function recordClick(event) {
   var imageSource = event.target.src;
   console.log("Image Clicked: "+imageSource);
 
+  index1++;
+  index2++;
+  index3++;
+  console.log(index1);
+  console.log(index2);
+  console.log(index3);
 
   totalClick++; // total click counter
   console.log(totalClick);
