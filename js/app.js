@@ -69,7 +69,6 @@ function showImages() {
 }
 
 
-
 // counter = 0
 var totalClick = 0;
 var index1 = 0;
@@ -81,13 +80,14 @@ function recordClick(event) {
   var imageSource = event.target.src;
   console.log("Image Clicked: "+imageSource);
 
-// if(index1)
-//   index1++;
-//   // index2++;
-//   // index3++;
+  var index = 0;
+  var click = images[index];
+  click.counter++;
+
   console.log(index1);
   console.log(index2);
   console.log(index3);
+  console.log(this.counter);
 
   totalClick++; // total click counter
   console.log(totalClick);
