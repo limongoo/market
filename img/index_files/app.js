@@ -39,14 +39,9 @@ function recordClick(event) {
   var imageSource = event.target.src;
   console.log("Image Clicked: "+imageSource);
 
-  // var index1 = document.getElementsByTagName("img");
-  // var index2 = document.getElementsByTagName("img");
-  // var index3 = document.getElementsByTagName("img");
-  //
-  // index1 = document.removeChild("img");
-  // index2 = document.removeChild("img");
-  // index3 = document.removeChild("img");
-
+  Node1 = document.removeChild("img");
+  Node2 = document.removeChild("img");
+  Node3 = document.removeChild("img");
   showImages();
 }
 
