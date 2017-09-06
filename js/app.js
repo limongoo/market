@@ -7,6 +7,7 @@ console.log("start");
 var product = function(productName) {
   this.productName = productName;
   this.counter = 0;
+  this.y = 0;
 }
 
 // image objects
@@ -86,8 +87,10 @@ function recordClick(event) {
   // loop until find product name
   var index = 0;
   while (clickProductName[1] !== images[index].productName){
-    index++;
+    index++; // counter to go through index
   }
+
+  images[index].y++; // y plot product counter
 
   // counter add to image clicked
   var click = images[index];
@@ -97,14 +100,26 @@ function recordClick(event) {
   totalClick++; // total click counter
   console.log(totalClick);
 
+  if (totalClick == 15) {
+    resultButton.setAttribute('class', 'button');
+  }
+
+
   document.getElementById('counterText').innerHTML = "Vote Counter: " + totalClick + " of 15"; // Show # of 15 text
 
   showImages();
 }
 
+// show result button
+var resultButton = document.getElementById('showResults');
+resultButton.addEventListener('click', updateChart);
+
+
+
 // chart add
+var chart = null;
 window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
+	chart = new CanvasJS.Chart("chartContainer", {
 		theme: "theme2",//theme1
 		title:{
 			text: "Number of Clicks by Photo"
@@ -114,20 +129,19 @@ window.onload = function () {
 		{
 			// Change type to "bar", "area", "spline", "pie",etc.
 			type: "column",
-			dataPoints: [
-				{ label: "apple",  y: 10  },
-				{ label: "orange", y: 15  },
-				{ label: "banana", y: 25  },
-				{ label: "mango",  y: 30  },
-				{ label: "grape",  y: 28  }
-			]
+			dataPoints: images // put product array here for y plot
 		}
 		]
 	});
 	chart.render();
 }
 
-
+// update function
+function updateChart() {
+  chart.render();
+  document.getElementById('chartContainer').setAttribute('class', "container");
+  
+}
 
 
 // window event listener
