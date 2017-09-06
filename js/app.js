@@ -71,23 +71,28 @@ function showImages() {
 
 // counter = 0
 var totalClick = 0;
-var index1 = 0;
-var index2 = 0;
-var index3 = 0;
+
 
 // function to record click
 function recordClick(event) {
-  var imageSource = event.target.src;
-  console.log("Image Clicked: "+imageSource);
+  var imageSource = event.target.src; // get path to image
+  console.log('imageSource:', imageSource);
 
+
+  var clickProductName = imageSource.split('img/'); // split image
+  console.log('clickProductName:', clickProductName);
+  console.log('clickProductName:', clickProductName[1]);
+
+  // loop until find product name
   var index = 0;
-  var click = images[index];
-  click.counter++;
+  while (clickProductName[1] !== images[index].productName){
+    index++;
+  }
 
-  console.log(index1);
-  console.log(index2);
-  console.log(index3);
-  console.log(this.counter);
+  // counter add to image clicked
+  var click = images[index];
+  click.counter++; //
+  console.log(click.counter);
 
   totalClick++; // total click counter
   console.log(totalClick);
