@@ -116,13 +116,15 @@ resultButton.addEventListener('click', updateChart);
 
 
 
+
+
 // chart add
 var chart = null;
 window.onload = function () {
 	chart = new CanvasJS.Chart("chartContainer", {
 		theme: "theme2",//theme1
 		title:{
-			text: "Number of Clicks by Photo"
+			text: ""
 		},
 		animationEnabled: true,   // change to true
 		data: [
@@ -140,7 +142,7 @@ window.onload = function () {
 function updateChart() {
   chart.render();
   document.getElementById('chartContainer').setAttribute('class', "container");
-  
+
 }
 
 
