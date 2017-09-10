@@ -38,7 +38,6 @@ function addImg(imageFileName) {
 }
 
 
-
 // random function
 function getRandom() {
   return Math.floor(Math.random() * 14);
@@ -116,8 +115,6 @@ resultButton.addEventListener('click', updateChart);
 
 
 
-
-
 // chart add
 var chart = null;
 window.onload = function () {
@@ -142,7 +139,6 @@ window.onload = function () {
 function updateChart() {
   chart.render();
   document.getElementById('chartContainer').setAttribute('class', "container");
-
 }
 
 
