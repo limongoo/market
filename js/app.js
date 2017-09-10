@@ -38,6 +38,7 @@ function addImg(imageFileName) {
 }
 
 
+
 // random function
 function getRandom() {
   return Math.floor(Math.random() * 14);
@@ -99,6 +100,9 @@ function recordClick(event) {
   totalClick++; // total click counter
   console.log(totalClick);
 
+  // Local Storage
+  localStorage.setItem('datadata', JSON.stringify(images));
+
   if (totalClick == 15) {
     resultButton.setAttribute('class', 'button');
   }
@@ -113,7 +117,11 @@ function recordClick(event) {
 var resultButton = document.getElementById('showResults');
 resultButton.addEventListener('click', updateChart);
 
-
+// Local Storage get item
+var retrieve = localStorage.getItem('datadata');  // get datadata
+if (retrieve != null) {  // if false. if retrieve not null, parse retrieve
+  images = JSON.parse(retrieve);  // parse data
+};
 
 // chart add
 var chart = null;
@@ -139,6 +147,7 @@ window.onload = function () {
 function updateChart() {
   chart.render();
   document.getElementById('chartContainer').setAttribute('class', "container");
+
 }
 
 
